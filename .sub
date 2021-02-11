@@ -1,0 +1,12 @@
+#!/bin/bash 
+#SBATCH --mail-type=ALL                   # Mail events (NONE, BEGIN, END, FAIL, ALL) 
+#SBATCH --mail-user=hmj19qmu@uea.ac.uk    # Where to send mail 
+#SBATCH -p compute-24-128                 # Which queue to use 
+#SBATCH -t 24:00:00                 # Running time in hours 
+#SBATCH --mem=8G 
+#SBATCH --job-name=my_nonpython_arrayjob_2.sub      # Job name
+#SBATCH -o my_nonpython_arrayjob_2.sub-%A-%a.out    # Standard output log 
+#SBATCH -e my_nonpython_arrayjob_2.sub-%A-%a.err    # Standard error log 
+#SBATCH --array 1,4-13,15
+SLURM_ARRAY_TASK_ID_sf=$(printf %02d $"SLURM_ARRAY_TASK_ID")
+
