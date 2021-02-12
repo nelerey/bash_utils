@@ -27,7 +27,7 @@ else
     fi
 
     if (($array!=-1));then
-        printf "\nSLURM_ARRAY_TASK_ID_sf=\$(printf %%02d \$\"SLURM_ARRAY_TASK_ID\")\n\n" >> $jobfilename
+        printf "\nSLURM_ARRAY_TASK_ID_sf=\$(printf %%02d \"\$SLURM_ARRAY_TASK_ID\")\n\n" >> $jobfilename
     fi
 
     printf "$jobfilename initialized, have fun with it.\n"
